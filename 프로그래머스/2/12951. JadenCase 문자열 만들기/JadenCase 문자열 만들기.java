@@ -1,23 +1,20 @@
 class Solution {
     public String solution(String s) {
+   
+        String[] arr = s.split(" "); 
         StringBuilder sb = new StringBuilder();
-        boolean start = true;
+        for(int i = 0 ; i < arr.length; i++) {
+           if(arr[i].length() == 0) {
+               sb.append(" ");
+           } else {
+             String str = arr[i].substring(0, 1).toUpperCase() +arr[i].substring(1).toLowerCase();
+             sb.append(str);
+           }
 
-        for (char c : s.toCharArray()) {
-            if (c == ' ') {
-                sb.append(c);
-                start = true; 
-            } else {
-                if (start) {
-                    sb.append(Character.toUpperCase(c));
-                    start = false;
-                } else {
-                    sb.append(Character.toLowerCase(c));
-                }
-            }
+            if(i != arr.length -1) sb.append(" ");
         }
-
+        
         return sb.toString();
-    }
+        
+        }
 }
-
